@@ -1,0 +1,3 @@
+steps:
+  - name: python
+    args: ['python','quickstart-automate/main.py']
