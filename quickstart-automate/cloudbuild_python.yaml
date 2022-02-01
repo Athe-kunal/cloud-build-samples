@@ -3,7 +3,7 @@ steps:
     args: ['python','quickstart-automate/main.py']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 
-         'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:v1.0', '.']
+         'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:v1.0', 'quickstart-automate/Dockerfile']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push',  'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:v1.0']
     
