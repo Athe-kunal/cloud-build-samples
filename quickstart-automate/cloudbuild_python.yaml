@@ -1,3 +1,15 @@
 steps:
   - name: python
-    args: ['python','quickstart-automate/main.py']
+    entrypoint: pip
+    args: ["install","-r","requirements.txt","--user"]
+  - name: python
+    entrypoint: python
+    args:
+    - '-m'
+    - 'twine'
+    - 'upload'
+    - '--repository-url'
+    - 'https://uscentral1-python.pkg.dev/carbide-bongo-339207/first-app/'
+    - 'dist/*'
+    # args: ['python','quickstart-automate/main.py']
+    
