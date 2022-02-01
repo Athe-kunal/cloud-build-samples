@@ -1,15 +1,11 @@
 steps:
   - name: python
-    entrypoint: pip
-    args: ["install","-r","quickstart-automate/requirements.txt","--user"]
-  - name: python
-    entrypoint: python
-    args:
-    - '-m'
-    - 'twine'
-    - 'upload'
-    - '--repository-url'
-    - 'https://uscentral1-python.pkg.dev/carbide-bongo-339207/first-app/'
-    - 'quickstart-automate/dist/*'
-    # args: ['python','quickstart-automate/main.py']
+    args: ['python','quickstart-automate/main.py']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 
+         'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:v1.0', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push',  'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:v1.0']
+    
+
     
