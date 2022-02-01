@@ -10,6 +10,6 @@ steps:
     - 'upload'
     - '--repository-url'
     - 'https://uscentral1-python.pkg.dev/carbide-bongo-339207/first-app/'
-    - 'dist/*'
+    - 'quickstart-automate/dist/*'
     # args: ['python','quickstart-automate/main.py']
     
