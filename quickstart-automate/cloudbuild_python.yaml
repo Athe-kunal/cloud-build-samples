@@ -8,7 +8,7 @@ steps:
           'tag_id=${_TAG_ID}', '-t', 
          'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:${_TAG_ID}', 'quickstart-automate']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', '--push-arg'
+    args: ['push', '--push-arg',
           'tag_id=${_TAG_ID}', 'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:${_TAG_ID}']
 substitutions: 
   _TAG_ID: v1.0.1
