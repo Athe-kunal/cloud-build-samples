@@ -8,9 +8,9 @@ steps:
     args: ['python','quickstart-automate/main.py']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 
-         'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:variables.TAG_ID', 'quickstart-automate']
+         'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:$(TAG_ID)', 'quickstart-automate']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push',  'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:variables.TAG_ID']
+    args: ['push',  'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:$(TAG_ID)']
     
 
     
