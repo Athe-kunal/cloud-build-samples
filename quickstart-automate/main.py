@@ -2,5 +2,5 @@ def main(name):
     print(f'Hey {name}')
 
 if __name__ == '__main__':
-    name = 'Venkataramana R. Salesken'
+    name = 'Ujwal'
     main(name)

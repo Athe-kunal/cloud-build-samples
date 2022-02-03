@@ -3,6 +3,10 @@ steps:
     # entrypoint: pip
     # args: ["install","-r","requirements.txt","--user"]
     args: ['python','quickstart-automate/main.py']
+  #Unittesting
+  # - name: python
+  #   entrypoint: python
+  #   args: ["-m", "pytest", "--junitxml=${SHORT_SHA}_test_log.xml"]
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build','--build-arg',
           'tag_id=${_TAG_ID}', '-t', 
@@ -12,6 +16,8 @@ steps:
           'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:${_TAG_ID}']
 substitutions: 
   _TAG_ID: v1.0.2
+# options:
+#   substitution_option: 'ALLOW_LOOSE'
     
 
     
