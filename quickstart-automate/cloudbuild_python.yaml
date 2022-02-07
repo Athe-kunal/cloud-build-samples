@@ -8,14 +8,14 @@ steps:
   #   entrypoint: python
   #   args: ["-m", "pytest", "--junitxml=${SHORT_SHA}_test_log.xml"]
   rules:
-    - if: '_IF_TAG == "true"'
+    - if: ${_IF_TAG} == true
       - name: 'gcr.io/cloud-builders/docker'
         args: ['build', '-t', 
              'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:${TAG_NAME}', 'quickstart-automate']
       - name: 'gcr.io/cloud-builders/docker'
         args: ['push',
               'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:${TAG_NAME}']
-    - if: '_IF_TAG == "false"'
+    - if: ${_IF_TAG} == false
       - name: python
         args: ['python','quickstart-automate/main.py']
 
