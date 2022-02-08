@@ -19,6 +19,7 @@ jobs:
       - name: python
         args: ['python','quickstart-automate/main.py']
 
+
 # substitutions: 
 #   _TAG_ID: v1.0.2
 # options:
