@@ -1,6 +1,6 @@
 steps:
   - name: python
-    args: ["main.py"]
+    args: ['python','quickstart-automate/main.py']
   #Unittesting
   # - name: python
   #   entrypoint: python
