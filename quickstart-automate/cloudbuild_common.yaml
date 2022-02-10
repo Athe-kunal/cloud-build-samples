@@ -1,21 +1,21 @@
 steps:
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+- name: gcr.io/google.com/cloudsdktool/cloud-sdk
   entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        if [["$_IF_TAG" == "T"]]
-         then
-          - name: python  
-            args: ['python','quickstart-automate/main.py']
+  args:
+    - '-c'
+    - |
+      if [["$_IF_TAG" == "T"]]
+       then
+        - name: python  
+          args: ['python','quickstart-automate/main.py']
 
-          - name: 'gcr.io/cloud-builders/docker'
-            args: ['build', '-t', 
-                 'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:${TAG_NAME}', 'quickstart-automate']
-          - name: 'gcr.io/cloud-builders/docker'
-            args: ['push',
-                  'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:${TAG_NAME}']
-        elif [["$_IF_TAG" == "F"]]
-          then
-            - name: python
-              args: ['python','quickstart-automate/main.py']          
+        - name: 'gcr.io/cloud-builders/docker'
+          args: ['build', '-t', 
+               'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:${TAG_NAME}', 'quickstart-automate']
+        - name: 'gcr.io/cloud-builders/docker'
+          args: ['push',
+                'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:${TAG_NAME}']
+      elif [["$_IF_TAG" == "F"]]
+        then
+          - name: python
+            args: ['python','quickstart-automate/main.py']          
