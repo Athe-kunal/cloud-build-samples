@@ -4,7 +4,7 @@ steps:
   args:
     - -c
     - |
-      if [["$_IF_TAG" == "T"]]
+      if [[ "$_IF_TAG" == "T" ]]
        then
         - name: python  
           args: ['python','quickstart-automate/main.py']
@@ -15,7 +15,7 @@ steps:
         - name: 'gcr.io/cloud-builders/docker'
           args: ['push',
                 'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:${TAG_NAME}']
-      elif [["$_IF_TAG" == "F"]]
+      elif [[ "$_IF_TAG" == "F" ]]
         then
           - name: python
             args: ['python','quickstart-automate/main.py']          
