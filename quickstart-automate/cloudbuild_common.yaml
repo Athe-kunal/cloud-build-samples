@@ -9,11 +9,9 @@ steps:
             args: ['python','quickstart-automate/main.py']
 
           - name: 'gcr.io/cloud-builders/docker'
-            args: ['build', '-t', 
-                    'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:${TAG_NAME}', 'quickstart-automate']
+            args: ['build', '-t', 'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:${TAG_NAME}', 'quickstart-automate']
           - name: 'gcr.io/cloud-builders/docker'
-            args: ['push',
-                    'us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:${TAG_NAME}']
+            args: ['push','us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:${TAG_NAME}']
       fi
       
       if [[ "$_IF_TAG" == "F" ]]
