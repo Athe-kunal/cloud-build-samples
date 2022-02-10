@@ -1,10 +1,10 @@
 steps:
-# - name: gcr.io/cloud-builders/gcloud
-- name: 'bash'
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: 'bash'
   args:
     - '-c'
     - |
-      if [[ "$_IF_TAG" == "T" ]]; then
+      if [[ "$TRIGGER_NAME" == "TAG" ]]; then
           - name: python  
             args: ['python','quickstart-automate/main.py']
 
@@ -14,7 +14,7 @@ steps:
             args: ['push','us-central1-docker.pkg.dev/carbide-bongo-339207/first-app/my-app:${TAG_NAME}']
       fi
       
-      if [[ "$_IF_TAG" == "F" ]]
+      if [[ "$TRIGGER_NAME" == "PUSH" ]]
         then
             name: python
             args: ['python','quickstart-automate/main.py']
